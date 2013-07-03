@@ -1,0 +1,44 @@
+#from by Michail 
++#calculator 3.0
++from traits.api import HasTraits,Button,Float
++
++from traitsui.api import View,Item
++
++class Trait_calculate(HasTraits):
++
++    a = Float(0)
++    b = Float(0)
++    c = Float(0)
++    plus_but = Button('+')
++    menus_but = Button('-')
++    grid_but = Button('*')
++    degrid_but = Button('/')
++    traits_view = View(Item('a', label = 'Variable'),
++                       Item('b', label = 'Changing'),
++                       Item('c', label = 'Result'),
++                       Item('plus_but',show_label=False),
++                       Item('menus_but',show_label=False),
++                       Item('grid_but',show_label=False),
++                       Item('degrid_but',show_label=False),)
++
++
++    def _plus_but_fired(self):
++        print self.a+self.b
++        self.c=self.a+self.b
++        
++    def _menus_but_fired(self):
++        print self.a-self.b
++        self.c=self.a-self.b
++        
++    def _grid_but_fired(self):
++        print self.a*self.b
++        self.c=self.a*self.b
++        
++    def _degrid_but_fired(self):
++        print self.a/self.b
++        self.c=self.a/self.b
++        
++if __name__ == '__main__':
++
++    te = Trait_calculate()
++    te.configure_traits()
