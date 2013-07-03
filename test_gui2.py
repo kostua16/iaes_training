@@ -5,6 +5,11 @@ from traitsui.api import Item, Group, View, HGroup, VGroup
 
 
 class test_gui(HasTraits):
+    """
+    Shows Simple calculator gui
+    Args:
+        calculating values need to be Float
+    """
     a = Float()
     b = Float()
     r = Float()
@@ -32,25 +37,40 @@ class test_gui(HasTraits):
                 title='Simple calulator')
 
     def _plus_fired(self):
+        """
+        Runs: result=a+b
+        """
         self.r = self.a + self.b
 
     def _minus_fired(self):
+        """
+        Runs: result=a-b
+        """
         self.r = self.a - self.b
 
     def _multi_fired(self):
+        """
+        Runs: result=a*b
+        """
         self.r = self.a * self.b
 
     def _sub_fired(self):
+        """
+        Runs: result=a/b
+        On exceptions: result=0.0
+        """
         try:
             self.r = self.a / self.b
         except Exception:
             self.r = 0.0
 
-    def __init__(self):
-        self.configure_traits()
 
 
 if __name__ == "__main__":
-    test_gui()
+    """
+    simple code starter: runs code if it's main file
+    """
+    v=test_gui()
+    v.configure_traits()
 
 
