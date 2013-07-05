@@ -65,12 +65,8 @@ class test_gui(HasTraits):
             self.r = 0.0
 
 
-
 if __name__ == "__main__":
-    """
-    simple code starter: runs code if it's main file
-    """
-    v=test_gui()
+    v = test_gui()
     v.configure_traits()
 
 
